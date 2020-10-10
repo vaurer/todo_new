@@ -35,7 +35,7 @@ public class TodoController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
-    @PutMapping (value ="/todos/put/{id}")
+    @PutMapping (value ="/todos/put/{id}") //Test comment
     public ResponseEntity changeTask(@PathVariable(value = "id") Integer id){
         Todo todo = todoRepository.getOne(id);
         todoRepository.getOne(id).setTaskDone(todoRepository.getOne(id).getTaskDone().booleanValue() != true);
