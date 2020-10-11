@@ -1,5 +1,4 @@
 loadAllTodos();
-$('.toast').toast('delay')
 document.getElementById("addTask").addEventListener("click", function () {
   addNewTask();
   loadAllTodos();
@@ -16,7 +15,6 @@ function loadAllTodos() {
       console.log(data, "OK");
   
       let htmlAllTodos = template(data);
-      console.log(template(data))
 
       document.getElementById("taskOutHandelbars").innerHTML = htmlAllTodos;
     });
@@ -91,4 +89,5 @@ function changeIsDone(id){
     });
     $('.toast').toast('show');
 }
+
 
