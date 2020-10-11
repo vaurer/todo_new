@@ -24,6 +24,9 @@ public class Todo {
     @Column
     private Boolean isTaskDone = false;
 
+    @Column
+    private String userId;
+
     public Todo(Integer id, String name, String responsible, Boolean isTaskDone) {
         this.id = id;
         this.name = name;
@@ -69,5 +72,13 @@ public class Todo {
 
     public void setTaskDone(Boolean taskDone) {
         isTaskDone = taskDone;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }

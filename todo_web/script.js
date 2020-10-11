@@ -26,7 +26,8 @@ function addNewTask() {
   newTask.responsible = document.getElementById("responsible").value;
   newTask.taskDone = false;
   var jsonString = JSON.stringify(newTask);
-
+  document.getElementById("newTaskInput").value="";
+  document.getElementById("responsible").value="";
   console.log(newTask);
 
   fetch("http://localhost:8080/todos/post", {

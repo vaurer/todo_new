@@ -30,7 +30,6 @@
             <button id ="addTask" class="btn btn-primary">Submit</button>
           </div>
         </div>
-</div>
 <div class="container">
     <div class="row">
       <div class="col-sm">
@@ -72,9 +71,9 @@
     <div class="row row-cols-4">
       <div class="col">
         {{#if taskDone}}
-        <input class="form-check-input" type="radio" onclick=changeIsDone({{id}}) type="checkbox"  checked/>
+        <input class="form-check-input" type="radio" onclick=changeIsDone({{id}})  checked/>
         {{else}}
-        <input class="form-check-input" type="radio" onclick=changeIsDone({{id}}) type="checkbox"  />
+        <input class="form-check-input" type="radio" onclick=changeIsDone({{id}})  />
         {{/if}}
        </div>
       <div class="col">

@@ -2,8 +2,6 @@ package at.va.todos.todos.controler;
 
 import at.va.todos.todos.model.Todo;
 import at.va.todos.todos.repository.TodoRepository;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.BindingResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,8 +18,7 @@ public class TodoController {
 
     @GetMapping("/todos")
     List<Todo> getAllTodos() {
-        List<Todo> todos = todoRepository.findAll();
-        return todos;
+        return todoRepository.findAll();
     }
 
     @PostMapping("/todos/post")
@@ -29,25 +26,19 @@ public class TodoController {
         return todoRepository.save(todo);
     }
 
+
     @DeleteMapping(value = "/todos/remove/{id}")
     public ResponseEntity deleteTask(@PathVariable(value = "id") Integer id) {
         todoRepository.deleteById(id);
         return new ResponseEntity(HttpStatus.OK);
     }
 
-    @PutMapping (value ="/todos/put/{id}") //Test comment
-    public ResponseEntity changeTask(@PathVariable(value = "id") Integer id){
+    @PutMapping(value = "/todos/put/{id}")
+    public ResponseEntity changeTask(@PathVariable(value = "id") Integer id) {
         Todo todo = todoRepository.getOne(id);
-        todoRepository.getOne(id).setTaskDone(todoRepository.getOne(id).getTaskDone().booleanValue() != true);
+        todoRepository.getOne(id).setTaskDone(!todoRepository.getOne(id).getTaskDone());
         todoRepository.save(todoRepository.getOne(id));
-       return new ResponseEntity(HttpStatus.OK);
+        return new ResponseEntity(HttpStatus.OK);
     }
 
-//    @PutMapping(value = "/todos/{id}",consumes = "application/json")
-//    public ResponseEntity updateTodo(@PathVariable("id") int id,@RequestBody Todo todo){
-//        todo.setId(id);
-//        todoRepository.save(todo);
-//
-//        return new ResponseEntity(HttpStatus.CREATED);
-//    }
 }
